@@ -1,6 +1,8 @@
 const canvas = document.querySelector('.canvas');
 const resize = document.querySelector('.resize');
 const clear = document.querySelector('.clear');
+const eraser = document.querySelector('.eraser');
+const colorPicker = document.querySelector('.color');
 resize.addEventListener('click', (e) => {
     const inputSize = parseInt(prompt('Enter the board size you would like. Eg. 10 for a 10x10', 10));
     console.log(typeof inputSize)
@@ -12,11 +14,17 @@ resize.addEventListener('click', (e) => {
 clear.addEventListener('click', (e) => {
     clearBoard(canvas);
     buildBoard(size);
-})
-//hard coding board size for now, will eventually be user input
+});
+eraser.addEventListener('click', (e) => {
+    cursorColor = 'white';
+});
+colorPicker.addEventListener('click', (e) => {
+    cursorColor = 'black';
+});
 let size = 16;
 let isDragging = false;
-
+let bgColor = 'white';
+let cursorColor = 'black';
 function clearBoard(board) {
     while (board.firstChild) {
         board.removeChild(board.firstChild);
@@ -36,7 +44,7 @@ function buildBoard(size){
         div.addEventListener('mouseup', () => isDragging = false )
         div.addEventListener('mouseover', () => {
             if(isDragging)
-                div.style.backgroundColor = 'black'
+                div.style.backgroundColor = cursorColor;
         })
         canvas.appendChild(div);
     }
