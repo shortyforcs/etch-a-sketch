@@ -1,6 +1,7 @@
 const canvas = document.querySelector('.canvas');
 //hard coding board size for now, will eventually be user input
 const size = 16;
+let isDragging = false;
 
 function buildBoard(size){
     const gridSize = size * size;
@@ -11,8 +12,12 @@ function buildBoard(size){
         //adjust div size to the proportion needed based on canvas size
         div.style.height = `${500/size}px`
         div.style.width = `${500/size}px`
+        //only want to draw when mouse is clicked AND dragged
+        div.addEventListener('mousedown', () => isDragging = true )
+        div.addEventListener('mouseup', () => isDragging = false )
         div.addEventListener('mouseover', (e) => {
-            div.style.backgroundColor = 'black'
+            if(isDragging)
+                div.style.backgroundColor = 'black'
         })
         canvas.appendChild(div);
     }
