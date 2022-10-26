@@ -1,5 +1,12 @@
-.container{
-    background-color: black;
-    width: 100px;
-    height: 100px;
+.canvas{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 500px;
+    height: 500px;
+    background-color: white;
+    border: 1px solid black;
+}
+.box{
+
 }
