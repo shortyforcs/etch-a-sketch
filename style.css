@@ -1,3 +1,16 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    width: 800px;
+    justify-content: space-between;
+}
+.controls {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    height: 500px;
+    border: 1px solid black;
+}
 .canvas{
     display: flex;
     flex-direction: row;
