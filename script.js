@@ -3,6 +3,7 @@ const resize = document.querySelector('.resize');
 const clear = document.querySelector('.clear');
 const eraser = document.querySelector('.eraser');
 const colorPicker = document.querySelector('.color');
+const canvasLabel = document.querySelector('.canvas-label');
 resize.addEventListener('click', (e) => {
     const inputSize = +prompt('Enter the board size you would like. Eg. 10 for a 10x10', 10);
     if(!inputSize) return;
@@ -30,6 +31,7 @@ function clearBoard(board) {
     }
 }
 function buildBoard(size){
+    canvasLabel.textContent = `${size} x ${size}`
     const gridSize = size * size;
     for(let i = 0; i < gridSize; i++){
         //figure out how to add a div to canvas

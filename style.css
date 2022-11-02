@@ -4,12 +4,26 @@
     width: 800px;
     justify-content: space-between;
 }
+.controls-container {
+    display: flex;
+    flex-direction: column;
+}
+.controls-label {
+    align-self: center;
+}
 .controls {
     display: flex;
     flex-direction: column;
     width: 250px;
     height: 500px;
     border: 1px solid black;
+}
+.canvas-container {
+    display: flex;
+    flex-direction: column;
+}
+.canvas-label {
+    align-self: center;
 }
 .canvas{
     display: flex;
