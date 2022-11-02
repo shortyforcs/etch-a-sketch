@@ -38,23 +38,23 @@ function buildBoard(size){
         //adjust div size to the proportion needed based on canvas size
         div.style.height = `${500/size}px`
         div.style.width = `${500/size}px`
-        //only want to draw when mouse is clicked AND dragged
-        div.addEventListener('pointerdown', (e) => {
-            isDragging = true;
-            div.style.backgroundColor = cursorColor;
-        })
-        div.addEventListener('pointerup', (e) => {
-            isDragging = false 
-        })
-        div.addEventListener('pointerover', (e) => {
-            if(isDragging){
-                div.style.backgroundColor = cursorColor;
-            }
-        })
         canvas.appendChild(div);
     }
     canvas.onmouseleave = () => {
         isDragging = false;
     }
+    canvas.addEventListener('pointerdown', (e) => {
+        isDragging = true;
+        e.target.style.backgroundColor = cursorColor;
+    })
+    canvas.addEventListener('pointerup', (e) => {
+        isDragging = false 
+    })
+    canvas.addEventListener('pointerover', () => {
+        if(isDragging){
+            e.target.style.backgroundColor = cursorColor;
+        }
+    })
+
 }
 buildBoard(size);
