@@ -50,7 +50,7 @@ function buildBoard(size){
     canvas.addEventListener('pointerup', (e) => {
         isDragging = false 
     })
-    canvas.addEventListener('pointerover', () => {
+    canvas.addEventListener('pointerover', (e) => {
         if(isDragging){
             e.target.style.backgroundColor = cursorColor;
         }
